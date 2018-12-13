@@ -13,6 +13,16 @@ class Config{
         @JvmStatic var configCache = ResourceCache<Configuration>(NaiveAPICaller(), 60, convert = { serial -> Klaxon().parse<Configuration>(serial)!! })
 
 
+
+        fun get(key:String):String{
+
+            val environment = System.getenv("config.environment")?: throw RuntimeException("No environment variable: 'config.environment'")
+            return get(environment, key)
+
+
+        }
+
+
         fun get(env:String, key:String):String{
 
             if(configCache.isEmpty()) loadCache()
