@@ -10,7 +10,7 @@ class Config{
 
         @JvmStatic val DATA_URI = "https://raw.githubusercontent.com/apigovau/config/master/src/main/resources/config.route.json"
 
-        @JvmStatic var configCache = ResourceCache<Configuration>(NaiveAPICaller(), 5, convert = { serial -> Klaxon().parse<Configuration>(serial)!! })
+        @JvmStatic var configCache = ResourceCache<Configuration>(NaiveAPICaller(), 60, convert = { serial -> Klaxon().parse<Configuration>(serial)!! })
 
 
         fun get(env:String, key:String):String{
