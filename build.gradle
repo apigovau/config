@@ -1,0 +1,37 @@
+buildscript {
+    ext.kotlin_version = '1.2.31'
+    ext.spring_boot_version = '1.5.3.RELEASE'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'kotlin'
+
+test {
+    beforeTest { descriptor ->
+        logger.lifecycle("Running test: ${descriptor}")
+    }
+}
+
+jar {
+    baseName = 'config'
+    version = '1.0'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'com.beust:klaxon:3.0.1'
+    testCompile "junit:junit:4.12"
+    compile "junit:junit:4.12"
+    compile 'khttp:khttp:0.1.0'
+}
