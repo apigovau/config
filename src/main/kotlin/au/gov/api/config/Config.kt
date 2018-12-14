@@ -31,7 +31,9 @@ class Config{
             val configuration = configCache.get(DATA_URI)
             if(env !in configuration.data) throw RuntimeException("No configuration value for '$env'+'$key' found @ '$DATA_URI'")
             if(key !in configuration.data[env]!!) throw RuntimeException("No configuration value for '$env'+'$key' found @ '$DATA_URI'")
-            return configuration.data[env]!![key]!!
+
+            val base =  configuration.data[env]!!["Base"]!!
+            return if(key != "Base"){base}else{""} + configuration.data[env]!![key]!!
         }
 
         private fun loadCache(){

@@ -1,11 +1,11 @@
 {
     "data":{
        "api.gov.au":{
-         "AuthURI":"https://api.gov.au/keys/producer/",
-         "LogURI":"https://api.gov.au/logs/api/",
-         "BaseRepoURI":"https://api.gov.au/repository/",
-         "Base":"https://api.gov.au/test",
-         "DefinitionsBase":"https://api.gov.au/definitions/"
+         "Base":"https://api.gov.au/test/",
+         "AuthURI":"keys/producer/",
+         "LogURI":"logs/api/",
+         "BaseRepoURI":"repository/",
+         "DefinitionsBase":"definitions/"
        }
     }
 }

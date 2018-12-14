@@ -10,32 +10,32 @@ val json = """
 {
     "data":{
        "y.cld.gov.au":{
-         "AuthURI":"https://api-gov-au.apps.y.cld.gov.au/keys/producer/",
-         "LogURI":"https://api-gov-au.apps.y.cld.gov.au/logs/api/",
-         "BaseRepoURI":"https://api-gov-au.apps.y.cld.gov.au/repository/",
          "Base":"https://api-gov-au.apps.y.cld.gov.au/",
-         "DefinitionsBase":"https://api-gov-au.apps.y.cld.gov.au/definitions/"
+         "AuthURI":"keys/producer/",
+         "LogURI":"logs/api/",
+         "BaseRepoURI":"repository/",
+         "DefinitionsBase":"definitions/"
        },
         "staging.api.gov.au":{
-         "AuthURI":"https://staging.api.gov.au/keys/producer/",
-         "LogURI":"https://staging.api.gov.au/logs/api/",
-         "BaseRepoURI":"https://staging.api.gov.au/repository/",
          "Base":"https://staging.api-gov-au.apps.y.cld.gov.au/",
-         "DefinitionsBase":"https://staging.api-gov-au.apps.y.cld.gov.au/definitions/"
+         "AuthURI":"keys/producer/",
+         "LogURI":"logs/api/",
+         "BaseRepoURI":"repository/",
+         "DefinitionsBase":"definitions/"
        },
        "api.gov.au":{
-         "AuthURI":"https://api.gov.au/keys/producer/",
-         "LogURI":"https://api.gov.au/logs/api/",
-         "BaseRepoURI":"https://api.gov.au/repository/",
          "Base":"https://api.gov.au/",
-         "DefinitionsBase":"https://api.gov.au/definitions/"
+         "AuthURI":"keys/producer/",
+         "LogURI":"logs/api/",
+         "BaseRepoURI":"repository/",
+         "DefinitionsBase":"definitions/"
        },
        "local":{
-         "AuthURI":"http://localhost:5000/keys/producer/",
-         "LogURI":"http://localhost:5000/logs/api/",
-         "BaseRepoURI":"http://localhost:5000/repository/",
          "Base":"http://localhost:5000/",
-         "DefinitionsBase":"http://localhost:5000/definitions/"
+         "AuthURI":"keys/producer/",
+         "LogURI":"logs/api/",
+         "BaseRepoURI":"repository/",
+         "DefinitionsBase":"definitions/"
        }
     }
 }
@@ -50,7 +50,7 @@ val json = """
         Assert.assertTrue("staging.api.gov.au" in config.data)
         Assert.assertTrue("api.gov.au" in config.data)
         Assert.assertTrue("local" in config.data)
-        Assert.assertEquals("https://api-gov-au.apps.y.cld.gov.au/keys/producer/", config.data["y.cld.gov.au"]!!["AuthURI"])
+        Assert.assertEquals("keys/producer/", config.data["y.cld.gov.au"]!!["AuthURI"])
 
 
     }
@@ -64,6 +64,7 @@ val json = """
         fetcher.map[Config.DATA_URI] = json 
 
         Assert.assertEquals("https://api.gov.au/",Config.get("api.gov.au","Base"))
+        Assert.assertEquals("https://api.gov.au/logs/api/",Config.get("api.gov.au","LogURI"))
     }
 
     @Test
@@ -73,7 +74,8 @@ val json = """
         Config.configCache = configCache
         //fetcher.map[Config.DATA_URI] = "" 
 
-        Assert.assertEquals("https://api.gov.au/test",Config.get("api.gov.au","Base"))
+        Assert.assertEquals("https://api.gov.au/test/",Config.get("api.gov.au","Base"))
+        Assert.assertEquals("https://api.gov.au/test/logs/api/",Config.get("api.gov.au","LogURI"))
     }
 
 
@@ -84,7 +86,7 @@ val json = """
         Config.configCache = configCache
         fetcher.map[Config.DATA_URI] = "[}" 
 
-        Assert.assertEquals("https://api.gov.au/test",Config.get("api.gov.au","Base"))
+        Assert.assertEquals("https://api.gov.au/test/",Config.get("api.gov.au","Base"))
     }
 
 
@@ -95,7 +97,7 @@ val json = """
         Config.configCache = configCache
         fetcher.map[Config.DATA_URI] = "[}" 
 
-        Assert.assertEquals("https://api.gov.au/test",Config.get("Base"))
+        Assert.assertEquals("https://api.gov.au/test/",Config.get("Base"))
     }
 }
 
