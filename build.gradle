@@ -14,6 +14,7 @@ apply plugin: 'idea'
 apply plugin: 'kotlin'
 
 test {
+    environment "config.environment", "api.gov.au"
     beforeTest { descriptor ->
         logger.lifecycle("Running test: ${descriptor}")
     }

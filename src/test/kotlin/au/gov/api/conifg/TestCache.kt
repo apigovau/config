@@ -88,5 +88,14 @@ val json = """
     }
 
 
+    @Test
+    fun test_use_config_environment(){
+        var fetcher = MockURIFetcher()
+        var configCache = ResourceCache<Configuration>(fetcher, 5, convert = { serial -> Klaxon().parse<Configuration>(serial)!! })
+        Config.configCache = configCache
+        fetcher.map[Config.DATA_URI] = "[}" 
+
+        Assert.assertEquals("https://api.gov.au/test",Config.get("Base"))
+    }
 }
 
