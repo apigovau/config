@@ -16,7 +16,7 @@ class Config{
 
         fun get(key:String):String{
 
-            val environment = System.getenv("config.environment")?: throw RuntimeException("No environment variable: 'config.environment'")
+            val environment = System.getenv("config_environment")?: throw RuntimeException("No environment variable: 'config_environment'")
             return get(environment, key)
 
 
