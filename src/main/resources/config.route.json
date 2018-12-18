@@ -8,7 +8,7 @@
          "DefinitionsBase":"definitions/"
        },
         "staging.api.gov.au":{
-         "Base":"https://staging.api-gov-au.apps.y.cld.gov.au/",
+         "Base":"https://staging.api.gov.au/",
          "AuthURI":"keys/producer/",
          "LogURI":"logs/api/",
          "BaseRepoURI":"repository/",
