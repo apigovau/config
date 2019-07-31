@@ -19,9 +19,12 @@ class Config{
             // allow overrides of config with env of 'apigov.config.BaseRepoURI' or similar
             // these need to be fully qualified
             // otherwise the env options specified by config_environment will be used
-            val overriden = Systen.getenv("apigov.config.${key}")
-            if(overriden != null) return overriden
+            val overriden = System.getenv("apigov.config.${key}")
+            if(overriden != null){
+                println("Using overiden config:{${key}:${overriden}}")
+                return overriden
 
+            }
             val environment = System.getenv("config_environment")?: throw RuntimeException("No environment variable: 'config_environment'")
             return get(environment, key)
 
