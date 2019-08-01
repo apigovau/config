@@ -16,10 +16,10 @@ class Config{
 
         fun get(key:String):String{
 
-            // allow overrides of config with env of 'apigov.config.BaseRepoURI' or similar
+            // allow overrides of config with env of 'apigov_config_BaseRepoURI' or similar
             // these need to be fully qualified
             // otherwise the env options specified by config_environment will be used
-            val overriden = System.getenv("apigov.config.${key}")
+            val overriden = System.getenv("apigov_config_${key}")
             if(overriden != null){
                 println("Using overiden config:{${key}:${overriden}}")
                 return overriden
