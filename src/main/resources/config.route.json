@@ -5,28 +5,32 @@
          "AuthURI":"keys/producer/",
          "LogURI":"logs/api/",
          "BaseRepoURI":"repository/",
-         "DefinitionsBase":"definitions/"
+         "DefinitionsBase":"definitions/",
+         "DocConverter":"DocConverter/"
        },
         "staging.api.gov.au":{
          "Base":"https://staging.api.gov.au/",
          "AuthURI":"keys/producer/",
          "LogURI":"logs/api/",
          "BaseRepoURI":"repository/",
-         "DefinitionsBase":"definitions/"
+         "DefinitionsBase":"definitions/",
+         "DocConverter":"DocConverter/"
        },
        "api.gov.au":{
          "Base":"https://api.gov.au/",
          "AuthURI":"keys/producer/",
          "LogURI":"logs/api/",
          "BaseRepoURI":"repository/",
-         "DefinitionsBase":"definitions/"
+         "DefinitionsBase":"definitions/",
+         "DocConverter":"DocConverter/"
        },
        "local":{
          "Base":"http://localhost",
          "AuthURI":":5003/keys/producer/",
          "LogURI":":5005/logs/api/",
          "BaseRepoURI":":5001/repository/",
-         "DefinitionsBase":":5002/definitions/"
+         "DefinitionsBase":":5002/definitions/",
+         "DocConverter":"DocConverter/"
        }
     }
 }
