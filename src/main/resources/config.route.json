@@ -30,7 +30,7 @@
          "LogURI":":5005/logs/api/",
          "BaseRepoURI":":5001/repository/",
          "DefinitionsBase":":5002/definitions/",
-         "DocConverter":"DocConverter/"
+         "DocConverter":":5010/DocConverter/"
        }
     }
 }
